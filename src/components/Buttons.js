@@ -22,11 +22,10 @@ class Buttons extends Component {
         })
 
         //now we import a clean deck and copy it to a new array
-        let newDeck = this.props.newDeck
-        let deck = [...newDeck]
+        let deck = [...this.props.newDeck]
 
         //here the cards are shuffled randomly
-        for (let i = 0; i < 200; i++) {
+        for (let i = 0; i < 52; i++) {
             let pos1 = Math.floor(Math.random() * deck.length)
             let pos2 = Math.floor(Math.random() * deck.length)
             let hold = deck[pos1]
@@ -41,7 +40,7 @@ class Buttons extends Component {
     //deal the card at the top of the deck
     dealOneCard() {
         //first we want to save the deck in state to another variable so we can modify it
-        let currentCards = this.state.cards
+        let currentCards = [...this.state.cards]
         //then we use .pop in order to remove the card on the deck as well as return it for rendering
         let card = currentCards.pop()
         //now we update the deck in the state with the top card removed so that no same card is dealt twice
